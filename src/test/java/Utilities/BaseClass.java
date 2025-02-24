@@ -31,7 +31,7 @@ public class BaseClass {
 
 		}
 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Set Page load timeout
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15)); // Set Page load timeout
 		driver.manage().window().maximize();
 
 	}

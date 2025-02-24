@@ -10,13 +10,13 @@ import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class) //Junit execution
 
-@CucumberOptions(
-		plugin={"pretty", "html:test-output/Cucumber_DsAlgo_CBT.html","json:test-output/cucumber-report.json","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}, //reporting purpose
+@CucumberOptions(plugin = { "pretty", "html:target/Cucumber_DsAlgo_1Browser_new.html", "json:target/cucumber-report.json",
+		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:" }, // reporting purpose
 		monochrome = false, // console output color
 		tags = "@HomePageTest", // tags from feature file
-		dryRun = !true, //To add new method give true
+		dryRun = !true, // To add new method give true
 		features = { "src/test/resources/features" }, // location of feature files
-		glue = {"stepDefinition","ApplicationHooks","Utilities"}) // location of step definition files
+		glue = { "stepDefinition", "ApplicationHooks", "Utilities" }) // location of step definition files
 
 public class TestRunner extends AbstractTestNGCucumberTests {
 
@@ -25,10 +25,11 @@ public class TestRunner extends AbstractTestNGCucumberTests {
 	public Object[][] scenarios() {
 		return super.scenarios();
 	}
+
 	@BeforeTest
-	@Parameters({"browser"})
-	public void defineBrowser(String browser)throws Throwable {
+	@Parameters({ "browser" })
+	public void defineBrowser(String browser) throws Throwable {
 		ConfigReader.setBrowserType(browser);
 	}
-	
+
 }
